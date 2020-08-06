@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#main-container {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 50% 50%;
+}
+
+.buttons {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+    border-bottom: solid 1px #ccc;
+}
+
+#clear-icon, #save-icon, #load-icon {
+    margin: 10px 0 5px 10px;
+    background: white;;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#load-file {
+    display: none;
+}
+
+.button-tooltip {
+    display: inline-block;
+    font-weight: normal;
+    position: absolute;
+    left: -400px;
+    /*/transition: all 0.5;*/
+}
+
+#clear-icon:hover #clear-tooltip,
+#save-icon:hover #save-tooltip,
+#load-icon:hover #load-tooltip {
+    position: relative;
+    left: 0;
+    animation: slidein 0.2s;
+}
+
+@keyframes slidein {
+    0% {
+        position: absolute;
+        left: -400px;
+    }
+    5% {
+        left: -100%;
+        position: relative;
+    }
+    100% {
+        left: 0;
+        position: relative;
+    }
+}
+
+#option1-container {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    border-right: solid 1px black;
+}
+
+#option2-container {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    border-left: solid 1px black;
+}
+
+.option-container {
+    height: 100%;
+    padding: 20px 20px;
+    /*background-color: cyan;*/
+}
+
+.title-container {
+    text-align: center;
+}
+
+.sec-container {
+    margin-top: 10px;
+    display: flex;
+}
+
+.pros-container, .cons-container {
+    width: 50%;
+    margin: 10px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.pros-container h3 {
+    color: green;
+    border-bottom: solid 1px greenyellow;
+}
+
+.cons-container h3 {
+    color: red;
+    border-bottom: solid 1px pink;
+}
+
+ol {    
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 1rem;
+    padding: 0 0.8rem;
+    
+    list-style: none;
+    counter-reset: li;
+}
+
+ol li {
+    counter-increment: li;
+    margin: 15px 0;
+}
+
+.pros-container li::before {
+    color: green;
+    content: counter(li) ".";
+    margin-right: 0.8rem;
+}
+
+.cons-container li::before {
+    color: red;
+    content: counter(li) ".";
+    margin-right: 0.8rem;
+}
+
+.remove-icon{
+    color: red;
+    margin-left: 0.8rem;
+    cursor: pointer;
+}
+
+.add {
+    margin-top: 25px;
+}
+
+.add input {
+    display: inline-block;
+    width: 90%;
+    padding: 5px;
+    
+    border: solid 1px gray;
+    border-radius: 5px;
+}
+
+.add-btn {
+    display: inline-block;
+    width: 100px;
+    padding: 5px;
+    margin-top: 5px;
+    
+    background: none;
+    color: #0055cc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.add-btn::before {
+    content: "+";
+}
